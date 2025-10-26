@@ -1,3 +1,37 @@
+# 포트폴리오용 프로젝트 안내
+이 저장소는 2025년 9월 와플스튜디오 동아리에서 진행한 FastAPI 심화 세미나 과제의 소스 코드와 결과물입니다.
+
+원본 저장소는 동아리 정책상 Private으로 관리되고 있어, 제가 구현한 코드를 보여드리고자 포트폴리오용으로 재구성하여 Public으로 게시합니다.
+
+## 이 과제를 통해 구현한 핵심 역량
+본 과제는 백엔드 서버의 핵심 기능인 사용자 인증/인가 시스템을 두 가지 방식(세션, 토큰)으로 모두 구현하고, 완성된 서버를 클라우드에 배포하는 것을 목표로 했습니다.
+
+이 과정을 통해 다음과 같은 역량을 학습하고 적용했습니다.
+
+두 가지 방식의 인증 시스템 동시 구현:
+
+- 세션 기반 인증: 서버 사이드 세션 저장 및 쿠키(sid)를 이용한 고전적인 로그인/로그아웃 구현.
+
+- 토큰 기반 인증 (JWT): Access Token과 Refresh Token을 발급하는 JWT 기반의 Stateless 인증 시스템 구현.
+
+보안을 고려한 JWT 라이프사이클 관리:
+
+- Refresh Token을 이용한 Access Token의 안전한 재발급 로직 구현.
+
+- 로그아웃 및 토큰 교체 시, 기존 Refresh Token을 무효화하는 토큰 블랙리스트(Token Blacklist) 운영.
+
+FastAPI 의존성 주입(Dependency Injection) 활용:
+
+- GET /api/users/me 엔드포인트에서, 쿠키(세션) 또는 Authorization 헤더(토큰) 중 유효한 인증 정보를 주입받아 처리하는 공통 의존성 함수 설계.
+
+백엔드 서버 배포 및 운영 (DevOps):
+
+- Python 애플리케이션을 AWS EC2 인스턴스 환경에서 실행하고, 외부에서 접근 가능하도록 서버를 배포 및 운영.
+
+고급 데이터 유효성 검증:
+
+- 회원가입 시 email 중복 검사, password 암호화(Hashing) 저장, phone_number 정규식 검증 등 Pydantic을 이용한 복잡한 비즈니스 로직 처리.
+
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/E6j2spNg)
 # FastAPI 세미나 과제 2
 
